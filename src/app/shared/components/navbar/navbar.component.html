@@ -1,0 +1,137 @@
+<nav
+  class="fixed w-full z-20 top-0 start-0 border-b border-teal-100 bg-[rgba(237,252,250,0.95)] backdrop-blur-md"
+>
+  <div class="max-w-screen-2xl mx-auto flex flex-wrap items-center justify-between py-4 px-4">
+    <a href="/" class="flex items-center space-x-5 rtl:space-x-reverse">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-activity w-6 h-6 text-[#06b6d4]"
+        aria-hidden="true"
+      >
+        <path
+          d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"
+        ></path>
+      </svg>
+      <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">
+        ORAVISION
+      </span>
+    </a>
+
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+          d="M5 7h14M5 12h14M5 17h14"
+        />
+      </svg>
+    </button>
+
+    <div class="hidden w-full md:flex grow md:w-auto" id="navbar-default">
+      @if (isLogin === true) {
+        <ul
+          class="font-medium flex flex-col p-4 md:p-1 mt-4 border border-default rounded-base md:flex-row md:space-x-12 rtl:space-x-reverse md:mt-0 md:border-0 mx-auto"
+        >
+          <li>
+            <a
+              routerLink="/home"
+              routerLinkActive="active-link"
+              class="flex items-center gap-2 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-[#06b6d4] hover:scale-105"
+            >
+              <i class="fa-regular fa-house"></i> Home
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/diagnosis"
+              routerLinkActive="active-link"
+              class="block py-2 px-3 md:p-2 md:bg-transparent text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base"
+            >
+              <i class="fa-solid fa-arrow-up-from-bracket"></i> Diagnosis
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/awareness"
+              routerLinkActive="active-link"
+              class="block py-2 px-3 md:p-2 md:bg-transparent text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base"
+            >
+              <i class="fa-solid fa-book-open"></i> Awareness
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/chatbot"
+              routerLinkActive="active-link"
+              class="block py-2 px-3 md:p-2 md:bg-transparent text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base"
+            >
+              <i class="fa-regular fa-message"></i> Chatbot
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/about"
+              routerLinkActive="active-link"
+              class="block py-2 px-3 md:p-2 md:bg-transparent text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base"
+            >
+              <i class="fa-solid fa-users"></i> About
+            </a>
+          </li>
+        </ul>
+      }
+
+      <ul class="flex flex-items-center space-x-6 ms-auto px-2 my-auto">
+        @if (isLogin === false) {
+          <li
+            routerLink="register"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-2 text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base cursor-pointer"
+          >
+            <a> Register </a>
+          </li>
+          <li
+            routerLink="login"
+            routerLinkActive="active-link"
+            class="block py-2 px-3 md:p-2 text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base cursor-pointer"
+          >
+            <a> Login </a>
+          </li>
+        } @else {
+          <li
+            class="block py-2 px-3 md:p-2 text-gray-700 hover:text-white hover:bg-[#06b6d4] rounded-base cursor-pointer"
+          >
+            <a (click)="singOut()"> <i class="fa-solid fa-right-from-bracket"></i> Signout </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,216 @@
+<section class="bg-linear-to-r from-[#D7F4F5] to-white py-20">
+  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+    <div class="space-y-6">
+      <span class="inline-block bg-white/50 text-[#0097A7] font-medium px-4 py-2 rounded-full">
+        AI-Powered Diagnostics
+      </span>
+
+      <h1 class="text-5xl font-extrabold text-heading">ORAVISION</h1>
+
+      <h2 class="text-3xl font-semibold text-[#0097A7]">See. Diagnose. Smile.</h2>
+
+      <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
+        Revolutionary AI technology that detects dental diseases with precision and speed. Get
+        instant, accurate diagnoses and personalized treatment recommendations.
+      </p>
+
+      <div class="flex gap-4 pt-4">
+        <a
+          routerLink="/diagnosis"
+          class="px-6 py-3 bg-[#06b6d4] text-white rounded-xl shadow-md hover:scale-105 duration-200 flex items-center gap-2"
+        >
+          Start Diagnosis →
+        </a>
+
+        <a
+          routerLink="/chatbot"
+          class="px-6 py-3 border border-[#06b6d4] bg-white text-black rounded-xl hover:bg-[#06b6d4] hover:text-white duration-200"
+        >
+          Ask Our AI Assistant
+        </a>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <img
+        src="/images/home.jpeg"
+        class="rounded-3xl shadow-xl w-[90%] md:w-[90%] object-cover"
+        alt="hero image"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE SECTION -->
+<section class="bg-white">
+  <div class="max-w-7xl mx-auto px-6 py-16 lg:py-24">
+    <!-- TITLE & SUBTITLE -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">
+        Why Choose ORAVISION?
+      </h2>
+      <p class="mt-4 text-slate-600 text-base sm:text-lg">
+        Cutting-edge technology meets dental expertise to provide you with the most accurate and
+        reliable diagnoses
+      </p>
+    </div>
+
+    <!-- FEATURES GRID -->
+    <div role="list" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      <ng-container *ngFor="let f of features; let i = index">
+        <article
+          role="listitem"
+          class="border-2 border-[rgba(167,240,230,0.6)] rounded-2xl p-8 bg-white min-h-[260px] flex flex-col transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:border-[#39e2cc]"
+          [attr.aria-labelledby]="'feature-title-' + i"
+        >
+          <!-- ICON -->
+          <div class="mb-6">
+            <div
+              class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500 to-[#06b6d4] text-white shadow"
+            >
+              <ng-container [ngSwitch]="f.key">
+                <!-- AI ICON -->
+                <svg
+                  *ngSwitchCase="'ai'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 3v18M7 3v4M17 3v4M7 21v-4M17 21v-4M5 12h14"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <!-- INSTANT RESULTS ICON -->
+                <svg
+                  *ngSwitchCase="'instant'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+
+                <!-- SECURITY ICON -->
+                <svg
+                  *ngSwitchCase="'security'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 2l7 3v5c0 5-3.5 9.8-7 11-3.5-1.2-7-6-7-11V5l7-3z"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- TITLE -->
+          <h3 id="{{ 'feature-title-' + i }}" class="text-lg font-semibold text-slate-800 mb-4">
+            {{ f.title }}
+          </h3>
+
+          <!-- DESCRIPTION -->
+          <p class="text-slate-600 text-sm">
+            {{ f.desc }}
+          </p>
+        </article>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="bg-[rgba(237,252,250,1)]">
+  <div class="max-w-7xl mx-auto px-6 py-16 lg:py-24 text-center">
+    <!-- Title -->
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">How It Works</h2>
+    <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+      Simple, fast, and accurate – get your dental diagnosis in three easy steps
+    </p>
+
+    <!-- Steps -->
+    <div
+      role="list"
+      aria-label="How it works steps"
+      class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12 items-start"
+    >
+      <ng-container *ngFor="let s of steps; let i = index">
+        <article role="listitem" class="flex flex-col items-center text-center px-4">
+          <!-- circle number -->
+          <div
+            class="w-28 h-28 rounded-full flex items-center justify-center mb-6 bg-gradient-to-br from-teal-500 to-[#06b6d4] text-white text-lg font-semibold shadow-md transition-transform duration-300 ease-out hover:scale-105"
+            aria-hidden="true"
+          >
+            {{ s.num }}
+          </div>
+
+          <!-- title -->
+          <h3 class="text-lg font-semibold text-slate-800 mb-2">{{ s.title }}</h3>
+
+          <!-- description -->
+          <p class="text-slate-600 max-w-[320px]">
+            {{ s.desc }}
+          </p>
+        </article>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- CTA HERO BAR -->
+<section class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white">
+  <div class="max-w-7xl mx-auto px-6 py-20 lg:py-28 text-center">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+      {{ cta.title }}
+    </h2>
+
+    <p class="mt-4 text-slate-100/90 whitespace-pre-line max-w-2xl mx-auto text-base sm:text-lg">
+      {{ cta.subtitle }}
+    </p>
+
+    <div class="mt-10">
+      <a
+        [routerLink]="cta.btnLink"
+        class="inline-flex items-center gap-3 bg-white text-teal-700 px-6 py-3 rounded-full shadow-lg hover:shadow-2xl transition-all duration-250 transform hover:-translate-y-1"
+        role="button"
+        aria-label="{{ cta.btnLabel }}"
+      >
+        <span class="font-medium">{{ cta.btnLabel }}</span>
+        <!-- simple arrow -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+        >
+          <path
+            d="M5 12h14M13 5l7 7-7 7"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

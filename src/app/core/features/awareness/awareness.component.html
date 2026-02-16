@@ -1,0 +1,191 @@
+<!-- Hero (blue gradient) -->
+<section class="py-12">
+  <div class="max-w-7xl mx-auto px-6 py-16 rounded-3xl text-center shadow-lg hero-gradient">
+    <span class="inline-flex items-center px-4 py-1 rounded-full badge-white mb-4">
+      <svg
+        class="w-4 h-4 mr-2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 20h9"></path>
+        <path d="M12 4h9"></path>
+        <path d="M4 9h16"></path>
+        <path d="M4 15h16"></path>
+      </svg>
+      Oral Health Education
+    </span>
+
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
+      Dental Awareness Center
+    </h2>
+    <p class="text-white text-base sm:text-lg max-w-3xl mx-auto opacity-90">
+      Educate yourself with comprehensive guides, videos, and tips to maintain optimal oral health
+    </p>
+  </div>
+</section>
+
+<!-- Videos -->
+<section class="py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <span class="px-4 py-1 rounded-full bg-[#E0F8F4] text-teal-600 text-sm font-medium"
+        >Educational Videos</span
+      >
+      <p class="text-slate-600 mt-2">
+        Explore helpful guides and videos to improve your oral health
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div
+        *ngFor="let v of videos"
+        class="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-xl transition cursor-pointer"
+        (click)="openVideo(v.link)"
+      >
+        <div class="relative">
+          <img [src]="getThumbnail(v.link)" class="w-full h-48 object-cover" alt="{{ v.title }}" />
+          <span
+            class="absolute top-3 left-3 bg-teal-600 text-white px-3 py-1 rounded-full text-sm"
+            >{{ v.category }}</span
+          >
+          <div class="absolute inset-0 flex justify-center items-center">
+            <div
+              class="w-14 h-14 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-md"
+            >
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="teal">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold text-lg">{{ v.title }}</h3>
+          <p class="text-slate-500 text-sm mt-1">{{ v.views }} views</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tips section -->
+<section class="aw-section">
+  <div class="container">
+    <header class="aw-header">
+      <span class="badge">Oral Health Education</span>
+      <p class="aw-sub">
+        Educate yourself with comprehensive guides, videos, and tips to maintain optimal oral health
+      </p>
+    </header>
+
+    <section class="tips-wrapper">
+      <h3 class="tips-heading"><span class="lightbulb">💡</span> Essential Oral Health Tips</h3>
+
+      <div class="tips-grid">
+        <article
+          *ngFor="let tip of tips; let i = index"
+          #tipCard
+          class="tip-card"
+          role="article"
+          aria-label="{{ tip.title }}"
+        >
+          <div class="card-top">
+            <div class="icon-box" aria-hidden="true">{{ tip.icon }}</div>
+          </div>
+
+          <div class="card-body">
+            <h4 class="tip-title">{{ tip.title }}</h4>
+            <p class="tip-desc">{{ tip.desc }}</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- DID YOU KNOW - facts section -->
+<section class="did-you-know py-12">
+  <div class="did-inner max-w-7xl mx-auto px-6 py-12 rounded-2xl">
+    <div class="dyk-header flex items-center gap-4 mb-6">
+      <div class="dyk-icon">
+        <!-- بسيط أيقون -->
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="white"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="M5 5l1.5 1.5"></path>
+          <path d="M18.5 17.5L20 19"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+      </div>
+      <h3 class="dyk-title">Did You Know?</h3>
+    </div>
+
+    <div class="dyk-grid">
+      <!-- استعمل *ngFor لعرض القيم -->
+      <div *ngFor="let f of facts; let i = index" class="dyk-item">
+        <div class="dyk-number">{{ i + 1 }}</div>
+        <div class="dyk-text">{{ f }}</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===============================
+    COMMON DENTAL PROBLEMS SECTION
+================================== -->
+
+<!-- Common Dental Problems -->
+<section class="problems-section py-12">
+  <div class="container">
+    <h2 class="problems-title">Common Dental Problems</h2>
+
+    <div class="problems-grid">
+      <article
+        *ngFor="let p of problems; let i = index"
+        #problemCard
+        class="problem-card"
+        role="article"
+        aria-label="{{ p.title }}"
+      >
+        <h3 class="problem-title">{{ p.title }}</h3>
+
+        <div class="problem-list">
+          <h4>Symptoms:</h4>
+          <ul>
+            <li *ngFor="let s of p.symptoms">{{ s }}</li>
+          </ul>
+
+          <h4>Prevention:</h4>
+          <ul>
+            <li *ngFor="let pr of p.prevention">{{ pr }}</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Final Call-To-Action Section -->
+<section class="cta-section">
+  <div class="cta-box">
+    <h2 class="cta-title">Have Questions About Your Oral Health?</h2>
+
+    <p class="cta-sub">
+      Our AI-powered chatbot is available 24/7 to answer your dental health questions
+    </p>
+
+    <button class="cta-btn" (click)="openChatbot()">Chat with AI Assistant</button>
+  </div>
+</section>

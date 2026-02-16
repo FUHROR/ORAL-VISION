@@ -1,0 +1,89 @@
+<div class="page">
+  <div class="header">
+    <h1>Dental Disease Diagnosis</h1>
+    <p>AI-powered clinical image analysis</p>
+
+    <button class="history-btn" (click)="goToHistory()">View History</button>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: Analysis -->
+    <div class="analysis">
+      <div *ngIf="state === 'IDLE'" class="empty">
+        <h3>No Analysis Yet</h3>
+        <p>Upload a dental image to begin.</p>
+      </div>
+
+      <div *ngIf="state === 'ANALYZING'" class="analyzing">
+        <h3>AI Processing...</h3>
+        <p>{{ analysisSteps[currentStep] }}</p>
+        <div class="loader"></div>
+      </div>
+
+      <div *ngIf="state === 'DONE'" class="result-card">
+        <h2>{{ result.predicted }}</h2>
+
+        <div class="confidence" [ngClass]="getRiskClass(result.classes[0].confidence)">
+          {{ result.classes[0].confidence * 100 | number: '1.0-0' }}% Confidence
+        </div>
+
+        <div *ngFor="let c of result.classes" class="bar-item">
+          <div class="bar-header">
+            <span class="label">{{ c.label }}</span>
+            <span class="percentage"> {{ c.confidence * 100 | number: '1.0-0' }}% </span>
+          </div>
+
+          <div class="bar">
+            <div class="fill" [style.width.%]="c.confidence * 100"></div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button (click)="exportPDF()">Export PDF</button>
+          <button (click)="reset()">New Scan</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Upload -->
+    <div class="upload">
+      <div
+        class="upload-card"
+        [class.dragging]="isDragging"
+        (dragover)="onDragOver($event)"
+        (dragleave)="onDragLeave()"
+        (drop)="onDrop($event)"
+      >
+        <ng-container *ngIf="!previewImage">
+          <!-- SVG ICON -->
+          <svg
+            width="60"
+            height="60"
+            fill="none"
+            stroke="#14b8a6"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 3v12" />
+            <path d="M7 8l5-5 5 5" />
+            <path d="M5 15v4a2 2 0 002 2h10a2 2 0 002-2v-4" />
+          </svg>
+
+          <p>Drag & Drop Dental Image</p>
+
+          <label class="file-label">
+            Choose File
+            <input type="file" hidden (change)="onFileSelected($event)" />
+          </label>
+        </ng-container>
+
+        <ng-container *ngIf="previewImage">
+          <img [src]="previewImage" class="preview" />
+          <button (click)="startAnalysis()">Analyze Image</button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

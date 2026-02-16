@@ -1,0 +1,389 @@
+<!-- TOP ABOUT SECTION -->
+<section class="bg-white py-16 lg:py-24">
+  <div class="max-w-5xl mx-auto text-center px-6">
+    <div
+      class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-6"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+          stroke-width="1.3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      Meet the Team
+    </div>
+
+    <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">About ORAVISION</h1>
+
+    <p class="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+      We're a passionate team of doctors, engineers, and innovators dedicated to making dental
+      disease detection accessible, accurate, and AI-powered for everyone.
+    </p>
+  </div>
+</section>
+
+<!-- OUR MISSION SECTION -->
+<section
+  class="bg-gradient-to-r from-teal-500 to-cyan-600 text-white py-16 rounded-3xl mx-4 lg:mx-12 mb-16"
+>
+  <div class="max-w-6xl mx-auto text-center px-6">
+    <h2 class="text-3xl lg:text-4xl font-extrabold mb-6">Our Mission</h2>
+
+    <p class="text-lg leading-relaxed max-w-4xl mx-auto">
+      To empower individuals and healthcare professionals with AI-driven dental diagnostics that
+      enable early detection, accurate analysis, and better oral health outcomes for all.
+    </p>
+  </div>
+</section>
+
+<!-- OUR CORE VALUES -->
+<section class="bg-white py-16 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-6">Our Core Values</h2>
+
+    <div role="list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+      <ng-container *ngFor="let v of values; let i = index">
+        <article
+          role="listitem"
+          class="border rounded-2xl border-[rgba(167,240,230,0.6)] p-8 bg-white text-center flex flex-col items-center transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.10),0_6px_15px_rgba(0,0,0,0.05)]"
+        >
+          <!-- icon circle -->
+          <div
+            class="w-14 h-14 rounded-full flex items-center justify-center mb-5 bg-gradient-to-br from-teal-500 to-[#06b6d4] text-white shadow-sm"
+          >
+            <ng-container [ngSwitch]="v.key">
+              <svg
+                *ngSwitchCase="'innovation'"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 8v4l2 2"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                *ngSwitchCase="'patient'"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20.8 4.6c-1.6-1.6-4.1-1.6-5.7 0L12 7.7 8.9 4.6C7.3 3 4.8 3 3.2 4.6c-1.6 1.6-1.6 4.1 0 5.7L12 19l8.8-8.7c1.6-1.6 1.6-4.1 0-5.7z"
+                  stroke-width="0.8"
+                />
+              </svg>
+
+              <svg
+                *ngSwitchCase="'excellence'"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2l3 6 6 .5-4.5 4 1 7L12 17l-5.5 3.5 1-7L3 8.5 9 8 12 2z"
+                  stroke-width="1.1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <svg
+                *ngSwitchCase="'collab'"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 21v-2a4 4 0 0 0-3-3.87M7 21v-2a4 4 0 0 1 3-3.87M12 7a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+                  stroke-width="1.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </ng-container>
+          </div>
+
+          <!-- title -->
+          <h3 class="text-lg font-semibold text-slate-800 mb-3">{{ v.title }}</h3>
+
+          <!-- description -->
+          <p class="text-sm text-slate-600 max-w-[260px]">
+            {{ v.desc }}
+          </p>
+        </article>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM (4 members - large cards) -->
+<section class="bg-[rgba(237,252,250,1)] py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-center text-3xl lg:text-4xl font-extrabold text-slate-900 mb-8">
+      Leadership Team
+    </h2>
+
+    <div role="list" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <ng-container *ngFor="let m of team; let i = index">
+        <article
+          role="listitem"
+          class="bg-white border border-[rgba(167,240,230,0.6)] rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-start transition-all duration-300 hover:shadow-[0_16px_50px_rgba(0,0,0,0.12)]"
+        >
+          <!-- left: image -->
+          <div class="flex-shrink-0">
+            <div
+              class="w-32 h-32 md:w-36 md:h-36 rounded-xl overflow-hidden border-4 border-[#A7F0E6]"
+            >
+              <img [src]="m.img" alt="{{ m.name }}" class="w-full h-full object-cover block" />
+            </div>
+          </div>
+
+          <!-- right: content -->
+          <div class="flex-1">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="text-lg md:text-xl font-semibold text-slate-800">{{ m.name }}</h3>
+                <div
+                  class="inline-block mt-2 px-3 py-1 rounded-full text-xs text-teal-700 bg-teal-100/80"
+                >
+                  {{ m.role }}
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+              {{ m.bio }}
+            </p>
+
+            <!-- Expertise tags -->
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span
+                *ngFor="let ex of m.expertise"
+                class="text-xs bg-slate-100 px-3 py-1 rounded-full text-slate-700"
+              >
+                {{ ex }}
+              </span>
+            </div>
+
+            <!-- Achievements -->
+            <div class="mt-4 text-sm text-slate-700">
+              <div class="font-medium mb-2 text-slate-800">Key Achievements:</div>
+              <ul class="space-y-2 text-sm text-slate-600">
+                <li *ngFor="let a of m.achievements" class="flex items-start gap-3">
+                  <!-- small ribbon icon -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 text-teal-600 mt-1 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2l3 6 6 .5-4.5 4 1 7L12 17l-5.5 3.5 1-7L3 8.5 9 8 12 2z"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>{{ a }}</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- social icons -->
+            <div class="mt-5 flex items-center gap-3">
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 8l7.5 5L18 8"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M21 6v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6"
+                    stroke-width="1.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-2-2 2 2 0 0 0-2 2v6h-4v-12h4"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect x="2" y="8" width="4" height="12" rx="1" stroke-width="1.3" />
+                  <circle cx="4" cy="4" r="2" stroke-width="1.3" />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 12 7v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
+                    stroke-width="1.0"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- ORAVISION BY THE NUMBERS -->
+<section class="py-12 lg:py-16">
+  <!-- الكارد بعرض الصفحة بالكامل -->
+  <div
+    class="w-full bg-[rgba(237,252,250,1)] border border-[rgba(167,240,230,0.6)] rounded-2xl p-10"
+  >
+    <!-- المحتوى داخل max-w للتمركز -->
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-center text-3xl lg:text-4xl font-extrabold text-slate-900 mb-10">
+        ORAVISION By The Numbers
+      </h3>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 items-center text-center">
+        <!-- item 1 -->
+        <div>
+          <div
+            class="text-3xl sm:text-4xl lg:text-5xl text-teal-600"
+            [attr.data-target]="stats[0].value"
+            #numEl
+          >
+            {{ stats[0].display }}
+          </div>
+          <div class="mt-3 text-sm text-slate-600">Diagnoses Completed</div>
+        </div>
+
+        <!-- item 2 -->
+        <div>
+          <div
+            class="text-3xl sm:text-4xl lg:text-5xl text-teal-600"
+            [attr.data-target]="stats[1].value"
+            #numEl
+          >
+            {{ stats[1].display }}
+          </div>
+          <div class="mt-3 text-sm text-slate-600">Accuracy Rate</div>
+        </div>
+
+        <!-- item 3 -->
+        <div>
+          <div
+            class="text-3xl sm:text-4xl lg:text-5xl text-teal-600"
+            [attr.data-target]="stats[2].value"
+            #numEl
+          >
+            {{ stats[2].display }}
+          </div>
+          <div class="mt-3 text-sm text-slate-600">Partner Clinics</div>
+        </div>
+
+        <!-- item 4 -->
+        <div>
+          <div
+            class="text-3xl sm:text-4xl lg:text-5xl text-teal-600"
+            [attr.data-target]="stats[3].value"
+            #numEl
+          >
+            {{ stats[3].display }}
+          </div>
+          <div class="mt-3 text-sm text-slate-600">User Rating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN OUR JOURNEY (with animation + single CTA linking to WhatsApp group) -->
+<section class="py-16">
+  <!-- outer card stretched full width, inner max-w centers content -->
+  <div
+    class="w-full rounded-2xl p-12 text-center mx-auto"
+    style="background: linear-gradient(90deg, #00bca8, #008dba)"
+  >
+    <div class="max-w-6xl mx-auto fade-in-up">
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-white mb-6">Join Our Journey</h2>
+
+      <p class="text-white text-lg max-w-3xl mx-auto leading-relaxed mb-10">
+        We're always strive for comfort and support for our patients. Join our ORAVISION clinic
+        community.
+      </p>
+
+      <div class="flex justify-center gap-4">
+        <!-- CTA opens WhatsApp invite in a new tab -->
+        <a
+          href="https://chat.whatsapp.com/D1QZMrg8QcnLND9M2YA2eG"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-cta bg-white text-teal-700 font-semibold px-8 py-3 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-white/30"
+          aria-label="View open positions (opens in new tab)"
+        >
+          View ORAVISION Community
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

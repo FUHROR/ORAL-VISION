@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+.active-link {
+  @apply bg-[#06b6d4] text-white rounded-base;
+}

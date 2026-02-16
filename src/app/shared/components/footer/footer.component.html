@@ -1,0 +1,114 @@
+<footer class="bg-[rgba(237,252,250,1)] text-slate-700">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-8">
+      <div class="text-sm text-slate-700">Meet Our Team</div>
+      <a class="text-sm underline text-teal-700 hover:text-emerald-600 transition-colors" href="#"
+        >View Full Team</a
+      >
+    </div>
+
+    <!-- Team Avatars -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 items-start justify-items-center mb-8">
+      <ng-container *ngFor="let m of team">
+        <div class="flex flex-col items-center text-center">
+          <!-- ring avatar: bigger + nicer spacing -->
+          <div
+            class="rounded-full p-1.5 bg-[#A7F0E6] transition-transform transform hover:scale-105 will-change-transform"
+          >
+            <div class="rounded-full p-[5px] bg-white shadow-sm">
+              <img
+                [src]="m.img"
+                alt="{{ m.name }}"
+                class="w-32 h-32 rounded-full object-cover block shadow-md transition-transform duration-300 ease-out hover:-translate-y-1 hover:scale-105"
+              />
+            </div>
+          </div>
+
+          <div class="mt-4 text-sm font-semibold text-slate-800">{{ m.name }}</div>
+          <div class="text-xs text-slate-500 mt-1">{{ m.role }}</div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Main Links -->
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-8 border-t border-b border-slate-200/40"
+    >
+      <!-- Logo + Description -->
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-full flex items-center justify-center bg-teal-500 text-white font-bold"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M3 12h3l3 8 4-16 3 8h4"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="text-teal-700 font-semibold">ORAVISION</div>
+        </div>
+        <p class="text-sm text-slate-500 max-w-xs">AI-Powered Dental Disease Detection System</p>
+      </div>
+
+      <!-- About -->
+      <div>
+        <h3 class="text-sm text-teal-700 font-semibold mb-3">About</h3>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li *ngFor="let a of links.about">
+            <a
+              class="hover:underline hover:text-emerald-600 transition-colors duration-150"
+              href="#"
+              >{{ a }}</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm text-teal-700 font-semibold mb-3">Contact</h3>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li *ngFor="let c of links.contact">
+            <a
+              href="#"
+              class="flex items-center gap-2 hover:text-emerald-600 transition-colors duration-150"
+            >
+              <span class="text-slate-400 text-sm">{{ c.icon }}</span>
+              <span>{{ c.label }}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-sm text-teal-700 font-semibold mb-3">Legal</h3>
+        <ul class="space-y-2 text-sm text-slate-600">
+          <li *ngFor="let l of links.legal">
+            <a
+              class="hover:underline hover:text-emerald-600 transition-colors duration-150"
+              href="#"
+              >{{ l }}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="py-6 text-center text-sm text-slate-500">
+      © {{ currentYear }} ORAVISION. All rights reserved.
+    </div>
+  </div>
+</footer>

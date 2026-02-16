@@ -1,0 +1,35 @@
+<div class="history-page">
+  <div class="header">
+    <h1>Diagnosis History</h1>
+    <button class="back-btn" (click)="goBack()">← Back to Diagnosis</button>
+  </div>
+
+  <div *ngIf="history.length === 0" class="empty">
+    <h3>No History Yet</h3>
+    <p>Your analyzed cases will appear here.</p>
+  </div>
+
+  <div class="history-grid" *ngIf="history.length > 0">
+    <div class="history-card" *ngFor="let item of history">
+      <img [src]="item.image" class="thumb" />
+
+      <div class="card-content">
+        <h3>{{ item.predicted }}</h3>
+        <p class="confidence">
+          {{ item.classes[0].confidence * 100 | number: '1.0-0' }}% Confidence
+        </p>
+        <p class="date">
+          {{ item.date | date: 'medium' }}
+        </p>
+      </div>
+
+      <div class="card-actions">
+        <button class="delete" (click)="deleteItem(item.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear-section" *ngIf="history.length > 0">
+    <button class="clear-btn" (click)="clearAll()">Clear All History</button>
+  </div>
+</div>
